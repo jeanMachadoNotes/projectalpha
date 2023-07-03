@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&display=swap');
+
+:root {
+    --heading-color: #fff;
+    --btn-bg-color-left: #0000FF;
+    --btn-bg-color-hover-left: #000094;
+    --btn-bg-color-right: #323232;
+    --btn-bg-color-hover-right: #171717;
+    --overlay-left: rgba(11, 52, 126, 0.3); 
+    --overlay-right: rgba(157, 157, 156, 0.3); 
+    --hover-width: 65%;
+    --other-width: 35%;
+}
+
+
+/* Sets so padding/border added to element don't change it's width */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Belanosima', sans-serif;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #171717;
+}
+
+body.bg {
+    background-image: url('./assets/palm-leaves.jpeg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: soft-light;
+}
+
+h1 {
+    position: absolute;
+    color: var(--heading-color);
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+
+}
+
+header {
+    position: absolute;
+    top: 2%;
+    color: #fff;
+}
+
+header .bio {
+    position: relative;
+    top: 100px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+header .bio p::after {
+    content: ' | ';
+}
+
+header .bio p:last-child:after {
+    content: "";
+}
+
+
+
+
+.btn {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--heading-color);
+    padding: 12px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    transition: top 0.3s, background-color 0.3s ease-in-out;
+}
+
+.split.left .btn {
+    background-color: var(--btn-bg-color-left);
+}
+
+.split.left .btn:hover {
+    top: 59%;
+    background-color: var(--btn-bg-color-hover-left);
+}
+
+.split.right .btn {
+    background-color: var(--btn-bg-color-right);
+}
+
+.split.right .btn:hover {
+    top: 59%;
+    background-color: var(--btn-bg-color-hover-right);
+}
+
+
+
+.container {
+    position: relative;
+    width: 80%;
+    height: 50%;
+}
+
+.split {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.split.left {
+    position: absolute;
+    left: 0;
+    background-image: url(./assets/jeremy-bishop-_CFv3bntQlQ-unsplash.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.split.right {
+    position: absolute;
+    right: 0;
+    background-image: url(./assets/ben-collins-Tljb0v38V_E-unsplash.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.split.left::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-left);
+}
+
+.split.right::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-right);
+}
+
+
+.hover-left .left {
+    width: var(--hover-width);
+}
+
+.hover-left .right {
+    width: var(--other-width);
+}
+
+.hover-right .right {
+    width: var(--hover-width);
+}
+
+.hover-right .left {
+    width: var(--other-width);
+}
+
+.split.left,
+.split.right,
+.split.left::before,
+.split.right::before {
+    transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 415px){ 
+    h1 {
+        font-size: 20px;
+        top: 47%;
+    }
+    .btn {
+        padding: 12px 14px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    header {
+        top: 5%;
+    }
+
+    header .bio {
+        top: 80px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+}
